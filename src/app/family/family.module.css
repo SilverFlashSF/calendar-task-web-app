@@ -1,0 +1,163 @@
+.familyPage {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl);
+    position: relative;
+}
+
+.familyPage::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(77, 159, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.familyCard {
+    width: 100%;
+    max-width: 480px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 400ms ease-out;
+}
+
+.familyTitle {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--space-xs);
+}
+
+.familySubtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-xl);
+}
+
+.tabs {
+    display: flex;
+    background: var(--bg-primary);
+    border-radius: var(--radius-md);
+    padding: 3px;
+    margin-bottom: var(--space-xl);
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.tabActive {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    box-shadow: 0 1px 4px var(--shadow);
+}
+
+.formGroup {
+    margin-bottom: var(--space-md);
+}
+
+.formLabel {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    margin-bottom: var(--space-xs);
+    color: var(--text-secondary);
+}
+
+.formInput {
+    width: 100%;
+    padding: 12px var(--space-md);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: var(--text-base);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.formInput:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px var(--accent-blue-subtle);
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--accent-blue), #6E6EFF);
+    color: #fff;
+    font-weight: 600;
+    font-size: var(--text-base);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    margin-top: var(--space-md);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(77, 159, 255, 0.3);
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.errorMsg {
+    background: rgba(255, 79, 110, 0.1);
+    border: 1px solid rgba(255, 79, 110, 0.3);
+    color: var(--priority-red);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-md);
+    text-align: center;
+}
+
+.successMsg {
+    background: rgba(77, 255, 184, 0.1);
+    border: 1px solid rgba(77, 255, 184, 0.3);
+    color: var(--priority-green);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-md);
+    text-align: center;
+}
+
+.logoutBtn {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast);
+}
+
+.logoutBtn:hover {
+    color: var(--priority-red);
+}

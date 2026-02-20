@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8bbd0"/>
+      <stop offset="100%" style="stop-color:#f48fb1"/>
+    </linearGradient>
+    <linearGradient id="hat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e91e63"/>
+      <stop offset="100%" style="stop-color:#c2185b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#bg)"/>
+  <!-- Body -->
+  <ellipse cx="100" cy="175" rx="40" ry="30" fill="#8d6e63"/>
+  <!-- Red shirt -->
+  <path d="M65 155 Q80 145 100 145 Q120 145 135 155 L140 185 Q120 195 100 195 Q80 195 60 185 Z" fill="#e91e63"/>
+  <!-- Face (round, cute) -->
+  <circle cx="100" cy="110" r="45" fill="#f5deb3"/>
+  <!-- Brown fur patches -->
+  <circle cx="72" cy="95" r="15" fill="#8d6e63" opacity="0.4"/>
+  <circle cx="128" cy="95" r="15" fill="#8d6e63" opacity="0.4"/>
+  <!-- Antlers -->
+  <g transform="translate(60, 52)">
+    <path d="M0 20 L-5 0 L-15 -5 M-5 0 L5 -8" stroke="#8d6e63" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(140, 52)">
+    <path d="M0 20 L5 0 L15 -5 M5 0 L-5 -8" stroke="#8d6e63" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- Hat -->
+  <path d="M65 85 Q65 55 100 52 Q135 55 135 85 Z" fill="url(#hat)"/>
+  <!-- Hat brim -->
+  <ellipse cx="100" cy="85" rx="40" ry="8" fill="#c2185b"/>
+  <!-- Hat white cross -->
+  <rect x="95" y="58" width="10" height="25" rx="2" fill="#fff"/>
+  <rect x="85" y="65" width="30" height="10" rx="2" fill="#fff"/>
+  <!-- Eyes (big, round, cute) -->
+  <ellipse cx="82" cy="108" rx="10" ry="12" fill="#fff"/>
+  <ellipse cx="82" cy="110" rx="7" ry="9" fill="#1a1a1a"/>
+  <circle cx="85" cy="107" r="3" fill="#fff"/>
+  <circle cx="80" cy="112" r="1.5" fill="#fff"/>
+  <ellipse cx="118" cy="108" rx="10" ry="12" fill="#fff"/>
+  <ellipse cx="118" cy="110" rx="7" ry="9" fill="#1a1a1a"/>
+  <circle cx="121" cy="107" r="3" fill="#fff"/>
+  <circle cx="116" cy="112" r="1.5" fill="#fff"/>
+  <!-- Blue nose -->
+  <ellipse cx="100" cy="122" rx="8" ry="6" fill="#2196f3"/>
+  <ellipse cx="102" cy="120" rx="3" ry="2" fill="#64b5f6" opacity="0.6"/>
+  <!-- Mouth (happy) -->
+  <path d="M88 132 Q100 142 112 132" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Blush -->
+  <ellipse cx="68" cy="120" rx="8" ry="5" fill="#ff8a80" opacity="0.5"/>
+  <ellipse cx="132" cy="120" rx="8" ry="5" fill="#ff8a80" opacity="0.5"/>
+</svg>

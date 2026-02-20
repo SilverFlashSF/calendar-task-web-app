@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35"/>
+      <stop offset="100%" style="stop-color:#f7931e"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff8c42"/>
+      <stop offset="100%" style="stop-color:#e65100"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#bg)"/>
+  <!-- Hair (long, flowing) -->
+  <path d="M45 75 Q45 50 70 40 Q100 25 130 40 Q155 50 155 75 L160 170 Q140 175 130 165 L125 120 L75 120 L70 165 Q60 175 40 170 Z" fill="url(#hair)"/>
+  <!-- Neck -->
+  <rect x="82" y="138" width="36" height="25" rx="5" fill="#fce4c8"/>
+  <!-- Body/top -->
+  <path d="M55 160 Q70 148 82 148 L118 148 Q130 148 145 160 L155 200 L45 200 Z" fill="#2196f3"/>
+  <!-- Bikini top detail -->
+  <path d="M70 160 Q100 150 130 160" stroke="#1565c0" stroke-width="2" fill="none"/>
+  <!-- Face -->
+  <ellipse cx="100" cy="108" rx="42" ry="45" fill="#fce4c8"/>
+  <!-- Hair bangs -->
+  <path d="M58 80 Q65 60 80 55 Q100 48 120 55 Q135 60 142 80 L140 95 Q130 80 100 78 Q70 80 60 95 Z" fill="url(#hair)"/>
+  <!-- Eyes -->
+  <ellipse cx="82" cy="108" rx="7" ry="8" fill="#fff"/>
+  <ellipse cx="82" cy="110" rx="5" ry="6" fill="#8b4513"/>
+  <circle cx="84" cy="108" r="2" fill="#fff"/>
+  <ellipse cx="118" cy="108" rx="7" ry="8" fill="#fff"/>
+  <ellipse cx="118" cy="110" rx="5" ry="6" fill="#8b4513"/>
+  <circle cx="120" cy="108" r="2" fill="#fff"/>
+  <!-- Eyelashes -->
+  <path d="M74 100 Q82 96 90 100" stroke="#333" stroke-width="1.5" fill="none"/>
+  <path d="M110 100 Q118 96 126 100" stroke="#333" stroke-width="1.5" fill="none"/>
+  <!-- Smile -->
+  <path d="M88 125 Q100 135 112 125" stroke="#e65100" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Blush -->
+  <ellipse cx="72" cy="120" rx="8" ry="5" fill="#ffb3b3" opacity="0.5"/>
+  <ellipse cx="128" cy="120" rx="8" ry="5" fill="#ffb3b3" opacity="0.5"/>
+  <!-- Tangerine earring -->
+  <circle cx="55" cy="115" r="5" fill="#ff9800"/>
+  <path d="M53 110 Q55 106 57 110" stroke="#4caf50" stroke-width="1.5" fill="none"/>
+</svg>

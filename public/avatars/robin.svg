@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a148c"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#2d2d4e"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#bg)"/>
+  <!-- Hair (long, dark, flowing) -->
+  <path d="M42 80 Q42 38 72 30 Q100 22 128 30 Q158 38 158 80 L162 180 Q150 185 145 170 L140 130 L60 130 L55 170 Q50 185 38 180 Z" fill="url(#hair)"/>
+  <!-- Neck -->
+  <rect x="82" y="138" width="36" height="25" rx="5" fill="#e8c9a0"/>
+  <!-- Purple top -->
+  <path d="M55 158 Q70 145 85 148 L115 148 Q130 145 145 158 L155 200 L45 200 Z" fill="#6a1b9a"/>
+  <!-- Cowl neck detail -->
+  <path d="M78 148 Q90 160 100 155 Q110 160 122 148" stroke="#8e24aa" stroke-width="2" fill="none"/>
+  <!-- Face -->
+  <ellipse cx="100" cy="108" rx="42" ry="45" fill="#e8c9a0"/>
+  <!-- Hair framing face -->
+  <path d="M42 80 Q48 55 65 45 Q75 40 80 50 Q78 68 70 85 Q62 100 58 115 L55 130 Q50 115 48 100 Z" fill="url(#hair)"/>
+  <path d="M158 80 Q152 55 135 45 Q125 40 120 50 Q122 68 130 85 Q138 100 142 115 L145 130 Q150 115 152 100 Z" fill="url(#hair)"/>
+  <!-- Bangs -->
+  <path d="M60 78 Q70 55 90 52 Q100 50 110 52 Q130 55 140 78 Q130 70 115 68 Q100 65 85 68 Q70 70 60 78 Z" fill="url(#hair)"/>
+  <!-- Eyes (calm, intelligent) -->
+  <ellipse cx="82" cy="108" rx="8" ry="7" fill="#fff"/>
+  <ellipse cx="82" cy="109" rx="5" ry="5.5" fill="#4a6fa5"/>
+  <circle cx="84" cy="107" r="2" fill="#fff"/>
+  <ellipse cx="118" cy="108" rx="8" ry="7" fill="#fff"/>
+  <ellipse cx="118" cy="109" rx="5" ry="5.5" fill="#4a6fa5"/>
+  <circle cx="120" cy="107" r="2" fill="#fff"/>
+  <!-- Eyelashes (elegant) -->
+  <path d="M73 101 Q82 97 91 101" stroke="#1a1a2e" stroke-width="1.5" fill="none"/>
+  <path d="M109 101 Q118 97 127 101" stroke="#1a1a2e" stroke-width="1.5" fill="none"/>
+  <!-- Eyebrows (elegant arch) -->
+  <path d="M72 96 Q82 90 92 96" stroke="#1a1a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M108 96 Q118 90 128 96" stroke="#1a1a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Nose -->
+  <path d="M100 112 Q102 118 100 120" stroke="#c9a07a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Subtle smile -->
+  <path d="M90 128 Q100 134 110 128" stroke="#333" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Lips tint -->
+  <path d="M92 128 Q100 133 108 128" fill="#d4817a" opacity="0.4"/>
+</svg>

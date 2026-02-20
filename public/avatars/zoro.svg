@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a472a"/>
+      <stop offset="100%" style="stop-color:#2d6a4f"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ade80"/>
+      <stop offset="100%" style="stop-color:#22c55e"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#bg)"/>
+  <!-- Neck -->
+  <rect x="78" y="140" width="44" height="30" rx="5" fill="#f5c5a3"/>
+  <!-- Shirt -->
+  <path d="M50 160 Q60 145 78 145 L122 145 Q140 145 150 160 L160 200 L40 200 Z" fill="#1a1a2e"/>
+  <!-- Haramaki (belly band) -->
+  <rect x="60" y="155" width="80" height="15" rx="4" fill="#22c55e" opacity="0.8"/>
+  <!-- Face -->
+  <ellipse cx="100" cy="110" rx="45" ry="50" fill="#f5c5a3"/>
+  <!-- Hair -->
+  <ellipse cx="100" cy="78" rx="48" ry="35" fill="url(#hair)"/>
+  <rect x="52" y="78" width="96" height="15" rx="3" fill="url(#hair)"/>
+  <!-- Left eye (scar) -->
+  <line x1="72" y1="100" x2="72" y2="120" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+  <line x1="65" y1="105" x2="79" y2="115" stroke="#c0392b" stroke-width="2" stroke-linecap="round"/>
+  <!-- Right eye -->
+  <ellipse cx="120" cy="110" rx="6" ry="4" fill="#333"/>
+  <circle cx="122" cy="109" r="1.5" fill="#fff"/>
+  <!-- Eyebrows -->
+  <path d="M62 95 Q72 88 82 95" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M110 95 Q120 88 130 95" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Mouth (smirk) -->
+  <path d="M90 130 Q105 138 118 130" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Earrings -->
+  <circle cx="55" cy="125" r="3" fill="#ffd700"/>
+  <circle cx="55" cy="132" r="3" fill="#ffd700"/>
+  <circle cx="55" cy="139" r="3" fill="#ffd700"/>
+  <!-- Swords on back -->
+  <rect x="135" y="40" width="4" height="80" rx="2" fill="#c0c0c0" transform="rotate(15 137 80)"/>
+  <rect x="140" y="45" width="4" height="75" rx="2" fill="#c0c0c0" transform="rotate(25 142 82)"/>
+  <rect x="145" y="50" width="4" height="70" rx="2" fill="#c0c0c0" transform="rotate(35 147 85)"/>
+  <!-- Sword handles -->
+  <rect x="133" y="35" width="8" height="12" rx="2" fill="#8b4513" transform="rotate(15 137 41)"/>
+  <rect x="138" y="40" width="8" height="12" rx="2" fill="#1a1a6e" transform="rotate(25 142 46)"/>
+  <rect x="143" y="45" width="8" height="12" rx="2" fill="#c0392b" transform="rotate(35 147 51)"/>
+</svg>

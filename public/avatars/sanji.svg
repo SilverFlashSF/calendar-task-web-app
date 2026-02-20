@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a3e"/>
+      <stop offset="100%" style="stop-color:#2d2d6e"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#bg)"/>
+  <!-- Neck -->
+  <rect x="82" y="140" width="36" height="25" rx="5" fill="#f5c5a3"/>
+  <!-- Suit jacket -->
+  <path d="M50 158 Q65 145 82 145 L118 145 Q135 145 150 158 L160 200 L40 200 Z" fill="#111"/>
+  <!-- Shirt -->
+  <path d="M88 145 L88 200 L112 200 L112 145 Z" fill="#e0e0e0"/>
+  <!-- Tie -->
+  <path d="M96 148 L100 155 L104 148 Z" fill="#1a237e"/>
+  <path d="M97 155 L100 200 L103 155 Z" fill="#1a237e"/>
+  <!-- Face -->
+  <ellipse cx="100" cy="110" rx="42" ry="48" fill="#f5c5a3"/>
+  <!-- Hair (blonde, covering left eye) -->
+  <path d="M55 75 Q55 40 85 35 Q115 30 140 45 Q155 55 150 80 L148 100 Q145 85 135 80 L130 75 Q115 65 100 68 Q80 70 72 85 L60 100 Z" fill="#ffd54f"/>
+  <!-- Hair covering left eye -->
+  <path d="M55 75 Q58 55 75 50 Q85 47 90 55 Q88 72 78 85 Q68 95 60 100 L55 90 Z" fill="#ffc107"/>
+  <!-- Visible right eye -->
+  <ellipse cx="120" cy="108" rx="7" ry="7" fill="#fff"/>
+  <ellipse cx="120" cy="110" rx="4.5" ry="5" fill="#4a6fa5"/>
+  <circle cx="122" cy="108" r="2" fill="#fff"/>
+  <!-- Right eyebrow (curly!) -->
+  <path d="M108 95 Q115 87 125 90 Q130 92 128 98" stroke="#ffc107" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Nose -->
+  <path d="M100 112 Q102 118 100 122" stroke="#d4a574" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Mouth (suave smile) -->
+  <path d="M90 132 Q100 140 115 132" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Cigarette -->
+  <rect x="115" y="130" width="30" height="3" rx="1.5" fill="#f5f5f5" transform="rotate(-10 130 131)"/>
+  <!-- Cigarette tip -->
+  <circle cx="144" cy="127" r="3" fill="#ff6b35" opacity="0.8"/>
+  <!-- Smoke wisps -->
+  <path d="M146 123 Q150 115 148 108" stroke="#ccc" stroke-width="1" fill="none" opacity="0.6"/>
+  <path d="M150 120 Q155 110 152 102" stroke="#ccc" stroke-width="1" fill="none" opacity="0.4"/>
+  <!-- Goatee -->
+  <path d="M94 140 Q100 148 106 140" stroke="#ffc107" stroke-width="1.5" fill="none" opacity="0.6"/>
+</svg>
