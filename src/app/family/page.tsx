@@ -27,7 +27,7 @@ export default function FamilyPage() {
                 setCurrentUser(user)
             }
         }
-        
+
         checkUser()
 
         const { data: { subscription } } = supabase.auth.onAuthStateChange(
@@ -205,7 +205,7 @@ export default function FamilyPage() {
                                 required
                             />
                         </div>
-                        <button type="submit" className={styles.submitBtn} disabled={loading || !currentUser}>
+                        <button type="submit" className={styles.submitBtn} disabled={loading}>
                             {loading ? 'Creating...' : 'Create Family'}
                         </button>
                     </form>
@@ -223,7 +223,7 @@ export default function FamilyPage() {
                                 required
                             />
                         </div>
-                        <button type="submit" className={styles.submitBtn} disabled={loading || !currentUser}>
+                        <button type="submit" className={styles.submitBtn} disabled={loading}>
                             {loading ? 'Joining...' : 'Join Family'}
                         </button>
                     </form>
