@@ -395,9 +395,9 @@ export default function SettingsPage() {
                         <hr className={styles.divider} />
 
                         <div className={styles.membersSection}>
-                            <h3 className={styles.membersTitle}>{t('settings.family.members.title')} ({members.length})</h3>
+                            <h3 className={styles.membersTitle}>{t('settings.family.members.title')} ({members?.length || 0})</h3>
                             <div className={styles.membersList}>
-                                {members.map((member) => (
+                                {members?.map((member) => (
                                     <div key={member.id} className={styles.memberItem}>
                                         <div className={styles.memberInfo}>
                                             <div className={styles.memberAvatar}>
