@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import styles from './family.module.css'
+import type { User } from '@supabase/supabase-js'
 
 export default function FamilyPage() {
     const [mode, setMode] = useState<'create' | 'join'>('create')
@@ -12,7 +13,33 @@ export default function FamilyPage() {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const [loading, setLoading] = useState(false)
+    const [currentUser, setCurrentUser] = useState<User | null>(null)
     const router = useRouter()
+    const supabase = createClient()
+
+    useEffect(() => {
+        const checkUser = async () => {
+            const { data: { session } } = await supabase.auth.getSession()
+            if (session?.user) {
+                setCurrentUser(session.user)
+            } else {
+                const { data: { user } } = await supabase.auth.getUser()
+                setCurrentUser(user)
+            }
+        }
+        
+        checkUser()
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(
+            (event, session) => {
+                if (session?.user) {
+                    setCurrentUser(session.user)
+                }
+            }
+        )
+
+        return () => subscription.unsubscribe()
+    }, [supabase.auth])
 
     const handleCreate = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -25,10 +52,8 @@ export default function FamilyPage() {
         }
 
         setLoading(true)
-        const supabase = createClient()
 
-        const { data: { user } } = await supabase.auth.getUser()
-        if (!user) {
+        if (!currentUser) {
             setError('You must be signed in')
             setLoading(false)
             return
@@ -37,7 +62,7 @@ export default function FamilyPage() {
         // Create family
         const { data: family, error: createError } = await supabase
             .from('families')
-            .insert({ name: familyName.trim(), created_by: user.id })
+            .insert({ name: familyName.trim(), created_by: currentUser.id })
             .select()
             .single()
 
@@ -50,7 +75,7 @@ export default function FamilyPage() {
         // Add self as member
         const { error: memberError } = await supabase
             .from('family_members')
-            .insert({ family_id: family.id, user_id: user.id })
+            .insert({ family_id: family.id, user_id: currentUser.id })
 
         if (memberError) {
             setError(memberError.message)
@@ -62,7 +87,7 @@ export default function FamilyPage() {
         await supabase
             .from('users')
             .update({ family_id: family.id })
-            .eq('id', user.id)
+            .eq('id', currentUser.id)
 
         setSuccess('Family created! Redirecting...')
         setTimeout(() => {
@@ -82,11 +107,9 @@ export default function FamilyPage() {
         }
 
         setLoading(true)
-        const supabase = createClient()
 
-        const { data: { user } } = await supabase.auth.getUser()
-        if (!user) {
-            setError('You must be signed in')
+        if (!currentUser) {
+            setError('You must be signed in to join a family.')
             setLoading(false)
             return
         }
@@ -107,7 +130,7 @@ export default function FamilyPage() {
         // Add self as member
         const { error: memberError } = await supabase
             .from('family_members')
-            .insert({ family_id: family.id, user_id: user.id })
+            .insert({ family_id: family.id, user_id: currentUser.id })
 
         if (memberError) {
             if (memberError.code === '23505') {
@@ -123,7 +146,7 @@ export default function FamilyPage() {
         await supabase
             .from('users')
             .update({ family_id: family.id })
-            .eq('id', user.id)
+            .eq('id', currentUser.id)
 
         setSuccess(`Joined "${family.name}"! Redirecting...`)
         setTimeout(() => {
@@ -133,7 +156,6 @@ export default function FamilyPage() {
     }
 
     const handleLogout = async () => {
-        const supabase = createClient()
         await supabase.auth.signOut()
         router.push('/')
         router.refresh()
@@ -183,7 +205,7 @@ export default function FamilyPage() {
                                 required
                             />
                         </div>
-                        <button type="submit" className={styles.submitBtn} disabled={loading}>
+                        <button type="submit" className={styles.submitBtn} disabled={loading || !currentUser}>
                             {loading ? 'Creating...' : 'Create Family'}
                         </button>
                     </form>
@@ -201,7 +223,7 @@ export default function FamilyPage() {
                                 required
                             />
                         </div>
-                        <button type="submit" className={styles.submitBtn} disabled={loading}>
+                        <button type="submit" className={styles.submitBtn} disabled={loading || !currentUser}>
                             {loading ? 'Joining...' : 'Join Family'}
                         </button>
                     </form>
