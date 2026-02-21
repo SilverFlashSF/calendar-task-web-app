@@ -284,6 +284,121 @@
     margin: var(--space-lg) 0;
 }
 
+/* Family Members Section */
+.membersSection {
+    margin: var(--space-md) 0;
+}
+
+.membersTitle {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+}
+
+.membersList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.memberItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.memberItem:hover {
+    transform: translateX(2px);
+    border-color: var(--border-hover);
+}
+
+.memberInfo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.memberAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--accent-blue), #6E6EFF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: var(--text-lg);
+    overflow: hidden;
+}
+
+.memberAvatarImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.memberDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.memberName {
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.ownerBadge {
+    font-size: 10px;
+    padding: 2px 6px;
+    background: rgba(255, 171, 0, 0.15);
+    color: var(--priority-yellow);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 171, 0, 0.3);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.memberEmail {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+}
+
+.removeMemberBtn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: var(--text-lg);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.removeMemberBtn:hover:not(:disabled) {
+    background: rgba(255, 79, 110, 0.1);
+    color: var(--priority-red);
+}
+
+.removeMemberBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 @media (max-width: 480px) {
     .sampleGrid {
         grid-template-columns: repeat(2, 1fr);

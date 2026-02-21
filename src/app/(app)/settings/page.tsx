@@ -23,6 +23,7 @@ export default function SettingsPage() {
     const [family, setFamily] = useState<Family | null>(null)
     const [displayName, setDisplayName] = useState('')
     const [avatarUrl, setAvatarUrl] = useState<string | null>(null)
+    const [members, setMembers] = useState<User[]>([])
     const [saving, setSaving] = useState(false)
     const [uploading, setUploading] = useState(false)
     const [message, setMessage] = useState('')
@@ -76,6 +77,14 @@ export default function SettingsPage() {
                 if (profile.family_id) {
                     const { data: fam } = await supabase.from('families').select('*').eq('id', profile.family_id).single()
                     if (fam) setFamily(fam)
+
+                    const { data: familyMembers } = await supabase
+                        .from('users')
+                        .select('*')
+                        .eq('family_id', profile.family_id)
+                        .order('created_at', { ascending: true })
+
+                    if (familyMembers) setMembers(familyMembers)
                 }
             }
         } catch (err) {
@@ -188,6 +197,27 @@ export default function SettingsPage() {
         setAvatarUrl(null)
         setUser({ ...user, avatar_url: null })
         showMessage('Avatar removed')
+        setSaving(false)
+    }
+
+    const removeMember = async (memberId: string) => {
+        if (!user || !family) return
+        if (!confirm(t('settings.family.members.removeConfirm'))) return
+
+        setSaving(true)
+        const supabase = createClient()
+        const { error } = await supabase
+            .from('family_members')
+            .delete()
+            .eq('user_id', memberId)
+            .eq('family_id', family.id)
+
+        if (!error) {
+            setMembers(members.filter(m => m.id !== memberId))
+            showMessage(t('settings.family.members.removedSuccess'))
+        } else {
+            showMessage(error.message || 'Failed to remove member')
+        }
         setSaving(false)
     }
 
@@ -361,6 +391,49 @@ export default function SettingsPage() {
                         <p className={styles.familyHint}>
                             {t('settings.family.hint')}
                         </p>
+
+                        <hr className={styles.divider} />
+
+                        <div className={styles.membersSection}>
+                            <h3 className={styles.membersTitle}>{t('settings.family.members.title')} ({members.length})</h3>
+                            <div className={styles.membersList}>
+                                {members.map((member) => (
+                                    <div key={member.id} className={styles.memberItem}>
+                                        <div className={styles.memberInfo}>
+                                            <div className={styles.memberAvatar}>
+                                                {member.avatar_url ? (
+                                                    <img src={member.avatar_url} alt={member.display_name} className={styles.memberAvatarImg} />
+                                                ) : (
+                                                    member.display_name?.charAt(0).toUpperCase() || '?'
+                                                )}
+                                            </div>
+                                            <div className={styles.memberDetails}>
+                                                <div className={styles.memberName}>
+                                                    {member.display_name}
+                                                    {member.id === family.created_by && (
+                                                        <span className={styles.ownerBadge}>{t('settings.family.members.owner')}</span>
+                                                    )}
+                                                </div>
+                                                <div className={styles.memberEmail}>{member.email}</div>
+                                            </div>
+                                        </div>
+
+                                        {user?.id === family.created_by && member.id !== user.id && (
+                                            <button
+                                                className={styles.removeMemberBtn}
+                                                onClick={() => removeMember(member.id)}
+                                                disabled={saving}
+                                                title={t('settings.family.members.remove')}
+                                            >
+                                                ✕
+                                            </button>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <hr className={styles.divider} />
 
                         <button className={styles.leaveBtn} onClick={leaveFamily} type="button">
                             {t('settings.leaveFamily')}
